@@ -24,13 +24,14 @@ This is a pairwise sequence classification model that was trained to
 
 <!-- Provide a longer summary of what this model is. -->
 
-This Bidirectional Long Short-Term Memory (BiLSTM) model is based upon a recurrent neural network that was fine-tuned
-      on 24K pairs of texts.
+This model is based upon a Bidirectional Long Short-Term Memory
+      (BiLSTM) model that was fine-tuned on 24K pairs of texts. A further improvement on
+      the model is gained by using gloVe embeddings and an attention layer.
 
 - **Developed by:** Eugene Lian and Steven Moussa
 - **Language(s):** English
-- **Model type:** Deep learning-based approaches that do not employ transformer architectures
-- **Model architecture:** BiLSTM
+- **Model type:** Supervised
+- **Model architecture:** Deep learning-based approaches that do not employ transformer architectures
 - **Finetuned from model [optional]:** BiLSTM
 
 ### Model Resources
@@ -46,7 +47,7 @@ This Bidirectional Long Short-Term Memory (BiLSTM) model is based upon a recurre
 
 <!-- This is a short stub of information on the training data that was used, and documentation related to data pre-processing or additional filtering (if applicable). -->
 
-24K premise-hypothesis pairs of texts.
+24K pairs of texts drawn from emails, news articles and blog posts.
 
 ### Training Procedure
 
@@ -57,10 +58,11 @@ This Bidirectional Long Short-Term Memory (BiLSTM) model is based upon a recurre
 <!-- This is a summary of the values of hyperparameters used in training the model. -->
 
 
-      - learning_rate: 0.001
+      - learning_rate: 1e-05
       - train_batch_size: 16
       - eval_batch_size: 16
       - seed: 42
+      - dropout: 0.1
       - num_epochs: 10
 
 #### Speeds, Sizes, Times
@@ -70,7 +72,7 @@ This Bidirectional Long Short-Term Memory (BiLSTM) model is based upon a recurre
 
       - overall training time: 15 minutes
       - duration per training epoch: 72 seconds
-      - model size: 100MB
+      - model size: 14.16 MB
 
 ## Evaluation
 
@@ -82,7 +84,7 @@ This Bidirectional Long Short-Term Memory (BiLSTM) model is based upon a recurre
 
 <!-- This should describe any evaluation data used (e.g., the development/validation set provided). -->
 
-A subset of the development set provided, amounting to 2K pairs.
+Full development set provided, amounting to 6K pairs.
 
 #### Metrics
 
@@ -93,19 +95,25 @@ A subset of the development set provided, amounting to 2K pairs.
       - Recall
       - F1-score
       - Accuracy
+      - MCC (Matthew's Correlation Coefficient)
 
 ### Results
 
-The model obtained an F1-score of 70% and an accuracy of 70%.
+
+      - Precision: 69.79%
+      - Recall: 70.26%
+      - F1-score: 70.19%
+      - Accuracy: 70.26%
+      - MCC: 40.43%
 
 ## Technical Specifications
 
 ### Hardware
 
 
-      - RAM: at least 16 GB
+      - RAM: at least 8 GB
       - Storage: at least 2GB,
-      - GPU: V100
+      - GPU: T4
 
 ### Software
 
@@ -118,11 +126,13 @@ The model obtained an F1-score of 70% and an accuracy of 70%.
 <!-- This section is meant to convey both technical and sociotechnical limitations. -->
 
 Any inputs (concatenation of two sequences) longer than
-      512 subwords will be truncated by the model.
+      100 tokens will be truncated by the model.
 
 ## Additional Information
 
 <!-- Any other information that would be useful for other people to know. -->
 
-The hyperparameters were determined by experimentation
-      with different values.
+The hyperparameters were determined by a grid search with the below values.
+      - learning_rate: [0.0,0.1,0.15]
+      - train_batch_size: [8,16,32]
+      - dropout: [0.0,0.1,0.15]
