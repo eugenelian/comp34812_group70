@@ -26,7 +26,7 @@ This is a pairwise sequence classification model that was trained to
 
 This model is based upon a Bidirectional Long Short-Term Memory
       (BiLSTM) model that was fine-tuned on 24K pairs of texts. A further improvement on
-      the model is gained by using gloVe embeddings and an attention layer.
+      the model is gained by using DeBERTa only for embeddings.
 
 - **Developed by:** Eugene Lian and Steven Moussa
 - **Language(s):** English
@@ -38,8 +38,8 @@ This model is based upon a Bidirectional Long Short-Term Memory
 
 <!-- Provide links where applicable. -->
 
-- **Repository:** https://huggingface.co/google-bert/bert-base-uncased
-- **Paper or documentation:** https://aclanthology.org/N19-1423.pdf
+- **Repository:** https://huggingface.co/microsoft/deberta-v3-base
+- **Paper or documentation:** https://arxiv.org/pdf/2006.03654
 
 ## Training Details
 
@@ -95,7 +95,8 @@ Full development set provided, amounting to 6K pairs.
       - Recall
       - F1-score
       - Accuracy
-      - MCC (Matthew's Correlation Coefficient)
+      - Matthew's Correlation Coefficient (MCC)
+      - Receiver Operating Characteristic Area Under Curve (ROC AUC) score
 
 ### Results
 
@@ -105,6 +106,7 @@ Full development set provided, amounting to 6K pairs.
       - F1-score: 70.19%
       - Accuracy: 70.26%
       - MCC: 40.43%
+      - ROC AUC score: %
 
 ## Technical Specifications
 
@@ -118,8 +120,8 @@ Full development set provided, amounting to 6K pairs.
 ### Software
 
 
-      - Transformers 4.18.0
-      - Pytorch 1.11.0+cu113
+      - Transformers 4.50.3
+      - Tensorflow 2.16.1
 
 ## Bias, Risks, and Limitations
 
