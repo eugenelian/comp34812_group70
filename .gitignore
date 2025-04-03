@@ -1,7 +1,8 @@
-# Ignore all Glove embeddings file and keras, weights and models
+# Ignore all Glove embeddings file and keras, weights, tokenizer and models
 *.txt
 *.h5
 *.keras
+*.json
 
 # Ignore Virtual Environments
 venv
