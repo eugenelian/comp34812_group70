@@ -1,2 +1,10 @@
+# Ignore all Glove embeddings file and keras, weights and models
 *.txt
+*.h5
+*.keras
+
+# Ignore Virtual Environments
 venv
+
+# Do not ignore requirements file
+!requirements.txt
