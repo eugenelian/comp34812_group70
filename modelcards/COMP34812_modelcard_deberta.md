@@ -5,11 +5,11 @@ language: en
 license: cc-by-4.0
 tags:
 - text-classification
-repo: https://github.com/steven-0003/NLI
+repo: https://github.com/eugenelian/comp34812_group70
 
 ---
 
-# Model Card for p40327sm-username2-NLI
+# Model Card for p40327sm-n46491el-NLI
 
 <!-- Provide a quick summary of what the model is/does. -->
 
@@ -25,8 +25,8 @@ This is a classification model that was trained to
 
 This model is based upon a DeBERTa model that was fine-tuned
       on over 24K pairs of texts.
-      DeBERTa improves upon BERT and RoBERTa by using disentagled attention and an enhanced mask encoder. In DeBERTav3, a further improvement is gained by using ELECTRA-Style pre-training with Gradient Disentangled Embedding Sharing.
-      We add GlobalAveragePooling after the last hidden layer in DeBERTa, preceding Dropout and a fully connected layer for the classification head.
+      DeBERTa improves upon BERT and RoBERTa by using disentagled attention and an enhanced mask encoder. In DeBERTa v3, a further improvement is gained by using ELECTRA-Style pre-training with Gradient Disentangled Embedding Sharing.
+      GlobalAveragePooling is added after the last hidden layer in RoBERTa, preceding Dropout and a fully connected layer for the classification head.
 
 - **Developed by:** Steven Moussa and Eugene Lian
 - **Language(s):** English
@@ -53,20 +53,17 @@ This model is based upon a DeBERTa model that was fine-tuned
 
 <!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
 
-The model is trained with a linear warmup and Adam optimizer with weight decay. Early Stopping is used and the model with
-      the best validation accuracy is saved.
-
 #### Training Hyperparameters
 
 <!-- This is a summary of the values of hyperparameters used in training the model. -->
 
 
-      - learning_rate: 1e-05
-      - train_batch_size: 16
-      - eval_batch_size: 16
+      - learning_rate: 3e-05
+      - train_batch_size: 32
+      - eval_batch_size: 32
       - weight_decay: 0.01
-      - num_warmup_steps: 50
-      - dropout: 0.1
+      - num_warmup_steps: 100
+      - dropout: 0.2
       - seed: 42
       - num_epochs: 5
 
@@ -76,8 +73,8 @@ The model is trained with a linear warmup and Adam optimizer with weight decay. 
 
 
       - overall training time: 1.25 hours
-      - duration per training epoch: 14.5 minutes
-      - model size: 701.26 MB
+      - duration per training epoch: 15 minutes
+      - model size: 701 MB
 
 ## Evaluation
 
@@ -101,15 +98,17 @@ Full development set provided, amounting to 6K pairs.
       - F1-score
       - Accuracy
       - MCC (Matthew's Correlation Coefficient)
+      - AUC (Area under the ROC curve)
 
 ### Results
 
 
-      - Precision: 92.05%
-      - Recall: 92.9%
-      - F1-score: 92.47%
-      - Accuracy: 92.19%
-      - MCC: 84.36%
+      - Precision: 91.79%
+      - Recall: 93.53%
+      - F1-score: 92.65%
+      - Accuracy: 92.34%
+      - MCC: 84.67%
+      - AUC: 92.30%
 
 ## Technical Specifications
 
@@ -124,7 +123,7 @@ Full development set provided, amounting to 6K pairs.
 
 
       - Transformers 4.18.0
-      - Pytorch 1.11.0+cu113
+      - tensorflow 2.18.0
 
 ## Bias, Risks, and Limitations
 
@@ -141,4 +140,4 @@ The hyperparameters were determined by a grid search with the below values.
       - learning_rate: [0.0,0.1,0.15]
       - train_batch_size: [8,16,32]
       - num_warmup_steps: [50,100,500,1000]
-      - dropout: [0.0,0.1,0.15]
+      - dropout: [0.0,0.1,0.15,0.2]
