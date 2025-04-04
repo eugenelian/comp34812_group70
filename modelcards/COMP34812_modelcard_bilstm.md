@@ -70,9 +70,9 @@ This model is based upon a Bidirectional Long Short-Term Memory
 <!-- This section provides information about how roughly how long it takes to train the model and the size of the resulting model. -->
 
 
-      - overall training time: 15 minutes
-      - duration per training epoch: 72 seconds
-      - model size: 14.16 MB
+      - overall training time: 75 minutes
+      - duration per training epoch: 430 seconds
+      - model size: 723.75 MB
 
 ## Evaluation
 
@@ -101,12 +101,12 @@ Full development set provided, amounting to 6K pairs.
 ### Results
 
 
-      - Precision: 69.79%
-      - Recall: 70.26%
-      - F1-score: 70.19%
-      - Accuracy: 70.26%
-      - MCC: 40.43%
-      - ROC AUC score: %
+      - Precision: 91.38%
+      - Recall: 83.50%
+      - F1-score: 87.26%
+      - Accuracy: 87.41%
+      - MCC: 75.17%
+      - ROC AUC score: 87.54%
 
 ## Technical Specifications
 
