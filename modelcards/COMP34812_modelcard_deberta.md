@@ -25,8 +25,8 @@ This is a classification model that was trained to
 
 This model is based upon a DeBERTa model that was fine-tuned
       on over 24K pairs of texts.
-      DeBERTa improves upon BERT and RoBERTa by using disentagled attention and an enhanced mask encoder. In DeBERTa v3, a further improvement is gained by using ELECTRA-Style pre-training with Gradient Disentangled Embedding Sharing.
-      GlobalAveragePooling is added after the last hidden layer in RoBERTa, preceding Dropout and a fully connected layer for the classification head.
+      DeBERTa improves upon BERT and RoBERTa by using disentangled attention and an enhanced mask encoder. In DeBERTa v3, a further improvement is gained by using ELECTRA-Style pre-training with Gradient Disentangled Embedding Sharing.
+      During finetuning, GlobalAveragePooling is added after the last hidden layer in DeBERTa, preceding Dropout and a fully connected layer for the classification head.
 
 - **Developed by:** Steven Moussa and Eugene Lian
 - **Language(s):** English
@@ -122,8 +122,8 @@ Full development set provided, amounting to 6K pairs.
 ### Software
 
 
-      - Transformers 4.18.0
-      - tensorflow 2.18.0
+      - Transformers 4.50.3
+      - Tensorflow 2.16.1
 
 ## Bias, Risks, and Limitations
 
@@ -137,6 +137,7 @@ Any inputs (concatenation of two sequences) longer than
 <!-- Any other information that would be useful for other people to know. -->
 
 The hyperparameters were determined by a grid search with the below values.
+
       - learning_rate: [0.0,0.1,0.15]
       - train_batch_size: [8,16,32]
       - num_warmup_steps: [50,100,500,1000]
