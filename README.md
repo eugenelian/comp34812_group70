@@ -1,19 +1,19 @@
 # Repository Structure
 [1] modelcards: Directory contains the model cards for both models
-[2] solution_b_bilstm: Directory contains the test predictions and source code used for the training, evaluation and demo for solution B. For the demo, download the model using the link below before running source code. 
+[2] solution_b_bilstm: Directory contains the test predictions and source code used for the training, evaluation and demo for solution B. For the demo, download the model weights using the link below before running source code. 
 [3] solution_c_transformer: Directory contains the test predictions and source code used for the training, evaluation and demo for solution C. For the demo, download the model weights using the link below before running source code. 
 
 
 # Solution B: Deep learning-based approaches that do not employ transformer architectures
 ## Saved Model
 
-Download the model from below: 
+Download the model weights from below: 
 
--Link to be inserted-
+https://smu-my.sharepoint.com/:u:/g/personal/eugene_lian_2022_scis_smu_edu_sg/EXudFtydXftAgGGvM9nMlVEBXahQn46QCknT751VnEXb-g?e=CaGwn9
 
 ## Files and instructions to run
 - BiLSTM_DeBERTa_Train.ipynb: Source code for the model. Attach the train.csv and dev.csv at runtime. Trained model can be downloaded once completed.
-- BiLSTM_DeBERTa_Eval.ipynb: Code to evaluate the model on the validation set. Attach the dev.csv file and the model either from training or downloaded below
+- BiLSTM_DeBERTa_Eval.ipynb: Code to evaluate the model on the validation set. Attach the dev.csv file and the model weights either from training or downloaded below
 - BiLSTM_DeBERTa_Test.ipynb: Code to predict new csv files. Attach the test.csv file. Predictions can be downloaded once completed.
 
 
